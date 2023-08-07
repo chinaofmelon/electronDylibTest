@@ -23,17 +23,17 @@ int testFun(void(*callback)(int index, char* runloopName)) {
     }
     
     CALLBACKFUN = callback;
+    NSString *model = [NSRunLoop.mainRunLoop currentMode];
+
+    if (callback) {
+        CALLBACKFUN(totalCound, model.UTF8String);
+    }
 
     timer = [NSTimer timerWithTimeInterval:1.0f repeats:YES block:^(NSTimer * _Nonnull t) {
         NSString *model = [NSRunLoop.mainRunLoop currentMode];
-            
-        NSLog(@"aaaaaaaaaaaaaaaaa   %@ %d", model, CALLBACKFUN);
+        NSLog(@"aaaaaaaaaaaaaaaaa   %@", model);
 
         totalCound++;
-
-        if (CALLBACKFUN) {
-            CALLBACKFUN(totalCound, model.UTF8String);
-        }
     }];
         
     [NSRunLoop.currentRunLoop addTimer:timer forMode:NSDefaultRunLoopMode];
