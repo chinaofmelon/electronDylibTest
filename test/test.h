@@ -9,6 +9,6 @@
 
 @interface test : NSObject
 
-int testFun(void(*callback)(int index));
+int testFun(void(*callback)(int index, char* runloopName));
 
 @end

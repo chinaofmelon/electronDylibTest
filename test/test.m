@@ -13,7 +13,7 @@
 NSTimer *timer = nil;
 int totalCound = 0;
 
-int testFun(void(*callback)(int index)) {
+int testFun(void(*callback)(int index, char* runloopName)) {
     if (timer) {
         [timer invalidate];
         timer = nil;
@@ -28,7 +28,7 @@ int testFun(void(*callback)(int index)) {
         totalCound++;
 
         if (callback) {
-            callback(totalCound);
+            callback(totalCound, model.UTF8String);
         }
     }];
         
