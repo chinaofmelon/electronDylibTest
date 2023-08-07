@@ -27,7 +27,7 @@ int testFun(void(*callback)(int index, char* runloopName)) {
     timer = [NSTimer timerWithTimeInterval:1.0f repeats:YES block:^(NSTimer * _Nonnull t) {
         NSString *model = [NSRunLoop.mainRunLoop currentMode];
             
-        NSLog(@"aaaaaaaaaaaaaaaaa   %@", model);
+        NSLog(@"aaaaaaaaaaaaaaaaa   %@ %d", model, CALLBACKFUN);
 
         totalCound++;
 
